@@ -1,38 +1,19 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import './App.css'
+import Login from './components/Login'
 
-type Album = {
-  id: number,
-  title: string,
-  releaseYear: number,
-  rating: number,
-  artist: {id: number, name: string}
-} 
+const queryClient = new QueryClient()
 
 function App() {
-  const [data, setData] = useState<Album[]>([])
-
-  useEffect(() => {
-    (async () => {
-      await axios.get('http://localhost:8080/api/v1/albums')
-      .then(res => {
-        setData(res.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    })()
-  }, [])
-
   
-  if(data) {
     return(
-    <>
-      {data.map(item => <p key={item.id}>{item.artist.name} - {item.title}</p>)}
-    </>
+      <>
+        <QueryClientProvider client={queryClient}>
+          <Login />
+        </QueryClientProvider>
+      </>
     )
-  }  
+  
 }
 
 export default App
