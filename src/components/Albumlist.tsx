@@ -1,14 +1,9 @@
+import { getAlbums } from '../services/albumService'
 import { AlbumResponse } from '../types'
-import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 
 const Albumlist = () => {
-    const getAlbums = async (): Promise<AlbumResponse[]> => {
-        const response = await axios.get('http://localhost:8080/api/v1/albums')
-
-        return response.data
-    }
-
+  
     const { data, error, isSuccess } = useQuery({
         queryKey: ['albums'],
         queryFn: getAlbums
