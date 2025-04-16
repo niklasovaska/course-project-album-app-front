@@ -42,7 +42,7 @@ const Login = () => {
     }
     else {
         return(
-            <div style={{display: 'flex', flexDirection: 'column'}}>
+            <div style={{display: 'flex', flexDirection: 'column', gap: 4}}>
                 <div style={{display: 'flex', gap: 4}}>
                     <label htmlFor='username'></label>
                     <input name='username' id='username' onChange={handleChange}/>
