@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from 'axios'
+import { Button } from "../components/ui/button"
 import Albumlist from "./Albumlist"
 
 
@@ -44,14 +45,14 @@ const Login = () => {
         return(
             <div style={{display: 'flex', flexDirection: 'column', gap: 4}}>
                 <div style={{display: 'flex', gap: 4}}>
-                    <label htmlFor='username'></label>
+                    <label htmlFor='username'>Username: </label>
                     <input name='username' id='username' onChange={handleChange}/>
                 </div>
                 <div style={{display: 'flex', gap: 4}}>
-                    <label htmlFor='password'></label>
+                    <label htmlFor='password'>Password: </label>
                     <input name='password' id='password' onChange={handleChange}/>
                 </div>
-                <button onClick={handleLogin}>Login</button>
+                <Button onClick={handleLogin}>Login</Button>
                 
             </div>
         )  
