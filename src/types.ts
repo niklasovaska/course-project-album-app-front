@@ -9,6 +9,13 @@ export type AlbumResponse = {
     }
 }
 
+export type AlbumEntry = {
+    title: string,
+    releaseYear: number,
+    rating: number,
+    artist: String
+}
+
 export type ArtistResponse = {
     name: String,
     _links: {
