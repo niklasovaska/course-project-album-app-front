@@ -1,4 +1,4 @@
-import { AlbumResponse, Artist, ArtistResponse } from '../types'
+import { AlbumResponse, AlbumEntry, Artist, ArtistResponse } from '../types'
 import axios, { AxiosRequestConfig } from 'axios'
 
 const baseUrl = 'http://localhost:8080/api'
@@ -26,17 +26,17 @@ export const deleteAlbum = async (id: number): Promise<AlbumResponse> => {
     return response.data
 }
 
-// const addAlbum = async (album: Album): Promise<AlbumResponse> => {
-//     const response = await axios.post(`${baseUrl}/albums`)
+export const addAlbum = async (album: AlbumEntry): Promise<AlbumEntry> => {
+    const response = await axios.post(`${baseUrl}/albums`, album, getAxiosConfig())
 
-//     return response.data
-// }
+    return response.data
+}
 
 // const updateAlbum = async (albumEntry: AlbumEntry): Promise<AlbumResponse> => {
 //     const response = await axios.put(albumEntry.url, albumEntry.album, getAxiosConfig())
 // }
 
-export const getArtists = async (): Promise<ArtistResponse> => {
+export const getArtists = async (): Promise<ArtistResponse[]> => {
     const response = await axios.get(`${baseUrl}/artists`, getAxiosConfig())
 
     return response.data._embedded.artists
