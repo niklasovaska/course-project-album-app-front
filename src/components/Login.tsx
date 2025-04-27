@@ -36,7 +36,7 @@ const Login = () => {
     }
 
     const handleLogin = () => {
-        axios.post('http://localhost:8080/login', user, {
+        axios.post('http://packtalbum-env.eba-umvkcsxp.eu-north-1.elasticbeanstalk.com/login', user, {
             headers: {'Content-Type': 'application/json'}
         })
         .then(res => {

@@ -1,7 +1,7 @@
 import { AlbumResponse, AlbumEntry, Artist, ArtistResponse } from '../types'
 import axios, { AxiosRequestConfig } from 'axios'
 
-const baseUrl = 'http://localhost:8080/api'
+const baseUrl = 'http://packtalbum-env.eba-umvkcsxp.eu-north-1.elasticbeanstalk.com/api'
 
 const getAxiosConfig = (): AxiosRequestConfig => {
     const token = sessionStorage.getItem('jwt')
